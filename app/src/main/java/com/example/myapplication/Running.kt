@@ -119,7 +119,7 @@ class Running : AppCompatActivity() {
         val intent = Intent(this, Result::class.java)
         val intext = ed_gt.text.toString()
         intent.putExtra("content",intext)
-        intent.putExtra("articalTXT",str)
+        intent.putExtra("articleTXT",str)
         ed_gt.text.clear()
         tx_show.text = ""
         tx_time.text = ""

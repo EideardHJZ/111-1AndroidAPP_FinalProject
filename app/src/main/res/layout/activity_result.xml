@@ -51,7 +51,7 @@
         app:layout_constraintWidth_max="wrap"/>
 
     <TextView
-        android:id="@+id/tvJudge"
+        android:id="@+id/tvResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="本次結果 : "
@@ -64,13 +64,13 @@
         android:layout_height="wrap_content"
         android:text="準確率(%)"
         android:textColor="@color/black"
-        app:layout_constraintTop_toTopOf="@+id/tvJudge"
-        app:layout_constraintLeft_toRightOf="@+id/tvJudge"/>
+        app:layout_constraintTop_toTopOf="@+id/tvResult"
+        app:layout_constraintLeft_toRightOf="@+id/tvResult"/>
     <TextView
         android:id="@+id/tvRate2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="100"
+        android:text=""
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/tvRate"
         app:layout_constraintLeft_toLeftOf="@+id/tvRate"
@@ -82,13 +82,13 @@
         android:layout_marginLeft="10dp"
         android:text="WPM"
         android:textColor="@color/black"
-        app:layout_constraintTop_toTopOf="@+id/tvJudge"
+        app:layout_constraintTop_toTopOf="@+id/tvResult"
         app:layout_constraintLeft_toRightOf="@+id/tvRate" />
     <TextView
         android:id="@+id/tvWPM2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="60"
+        android:text=""
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/tvWPM"
         app:layout_constraintLeft_toLeftOf="@+id/tvWPM"
@@ -101,13 +101,13 @@
         android:layout_marginLeft="10dp"
         android:text="花費時間(秒)"
         android:textColor="@color/black"
-        app:layout_constraintTop_toTopOf="@+id/tvJudge"
+        app:layout_constraintTop_toTopOf="@+id/tvResult"
         app:layout_constraintLeft_toRightOf="@+id/tvWPM" />
     <TextView
         android:id="@+id/tvTime2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="60"
+        android:text=""
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/tvTime"
         app:layout_constraintLeft_toLeftOf="@+id/tvTime"
@@ -115,11 +115,11 @@
 
 
     <TextView
-        android:id="@+id/tvOverall"
+        android:id="@+id/tvJudge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Excellent!"
+        android:text=""
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -129,7 +129,7 @@
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvOverall"
+        app:layout_constraintTop_toBottomOf="@+id/tvJudge"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:text="返回" />

@@ -58,10 +58,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="34sp"
+        android:text="120"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.706"
         app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintLeft_toRightOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.014" />
 
@@ -69,11 +71,12 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="倒數計時"
+        android:text="倒數計時:"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="@+id/tx_time"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tx_time"
         app:layout_constraintVertical_bias="0.044" />
 
 
