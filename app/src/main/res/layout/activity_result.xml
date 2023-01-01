@@ -7,12 +7,132 @@
     tools:context=".Result">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tvOrigin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tx_result"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="原始內容 : "
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvOriginContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:maxLines="5"
+        android:scrollbars="vertical"
+        android:singleLine="false"
+        android:text=""
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvOrigin"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="你的輸入 : "
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="@+id/tvOrigin"
+        app:layout_constraintTop_toBottomOf="@id/tvOriginContent"  />
+    <TextView
+        android:id="@+id/tvAnswerContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="5"
+        android:scrollbars="vertical"
+        android:singleLine="false"
+        android:text=""
+        app:layout_constraintLeft_toLeftOf="@+id/tvOrigin"
+        app:layout_constraintTop_toBottomOf="@id/tvAnswer"
+        android:inputType="textMultiLine"
+        android:ellipsize="end"
+        app:layout_constraintWidth_max="wrap"/>
+
+    <TextView
+        android:id="@+id/tvJudge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="本次結果 : "
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/tvAnswerContent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        android:id="@+id/tvRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="準確率(%)"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@+id/tvJudge"
+        app:layout_constraintLeft_toRightOf="@+id/tvJudge"/>
+    <TextView
+        android:id="@+id/tvRate2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tvRate"
+        app:layout_constraintLeft_toLeftOf="@+id/tvRate"
+        app:layout_constraintRight_toRightOf="@+id/tvRate"/>
+    <TextView
+        android:id="@+id/tvWPM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="WPM"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@+id/tvJudge"
+        app:layout_constraintLeft_toRightOf="@+id/tvRate" />
+    <TextView
+        android:id="@+id/tvWPM2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="60"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tvWPM"
+        app:layout_constraintLeft_toLeftOf="@+id/tvWPM"
+        app:layout_constraintRight_toRightOf="@+id/tvWPM" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="花費時間(秒)"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@+id/tvJudge"
+        app:layout_constraintLeft_toRightOf="@+id/tvWPM" />
+    <TextView
+        android:id="@+id/tvTime2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="60"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tvTime"
+        app:layout_constraintLeft_toLeftOf="@+id/tvTime"
+        app:layout_constraintRight_toRightOf="@+id/tvTime"/>
+
+
+    <TextView
+        android:id="@+id/tvOverall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Excellent!"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvOverall"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="返回" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
