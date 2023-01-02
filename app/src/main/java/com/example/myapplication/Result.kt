@@ -26,14 +26,12 @@ class Result : AppCompatActivity() {
         val tvWPM = findViewById<TextView>(R.id.tvWPM2)
         val tvTime = findViewById<TextView>(R.id.tvTime2)
         val tvJudge = findViewById<TextView>(R.id.tvJudge)
-        //val time = (intent.getStringExtra("time")!!.toInt())
-        tvTime.text = times.toString()
         var correct = 0
         var incorrect = 0
         var rate = 0
         var wpm = 0
         tvOriginContent.text = article
-
+        tvTime.text = times.toString()
         for (i in 0 until (answer.length))
         {
             if(answer[i] == article?.get(i))
@@ -49,7 +47,15 @@ class Result : AppCompatActivity() {
         }
 
         tvAnswerContent.text = answer
-        rate = (correct * 100) / article!!.length
+        if(answer.length != 0)
+        {
+            rate = (correct * 100) / answer.length
+        }
+        else
+        {
+            rate = 0
+        }
+
         if(rate > 85 && (wpm > 15) && (wpm < 29))
         {
             tvJudge.text = "Excellent"
@@ -66,8 +72,9 @@ class Result : AppCompatActivity() {
         {
             tvJudge.text = "Poor"
         }
+
         tvRate.text = rate.toString()
-        tvWPM.text = (correct/(60/times) - (incorrect)/(60/times)).toString()
+        tvWPM.text = (correct * (60/times)).toString()
         tvTime.text = times.toString()
 
 
