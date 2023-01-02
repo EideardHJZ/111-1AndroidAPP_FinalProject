@@ -92,7 +92,7 @@ class Running : AppCompatActivity() {
                 override fun onFinish() {
                     tx_time.text = ""
                     status_ch = true
-                    resetPr(substr)
+                    resetPr(substr,"0")
 
                 }
             }
@@ -102,7 +102,7 @@ class Running : AppCompatActivity() {
 
                 countDownTimer.cancel()
                 status_ch = true
-                resetPr(substr)
+                resetPr(substr,(110-tx_time.text.toString().toInt()).toString())
             })
         }
 
@@ -112,7 +112,7 @@ class Running : AppCompatActivity() {
     }
 
 
-    private fun resetPr(str:String){
+    private fun resetPr(str:String,t:String){
         val ed_gt = findViewById<EditText>(R.id.editTextTextPersonName)
         val tx_show = findViewById<TextView>(R.id.textView)
         val tx_time = findViewById<TextView>(R.id.tx_time)
@@ -120,6 +120,7 @@ class Running : AppCompatActivity() {
         val intext = ed_gt.text.toString()
         intent.putExtra("content",intext)
         intent.putExtra("articleTXT",str)
+        intent.putExtra("time",t)
         ed_gt.text.clear()
         tx_show.text = ""
         tx_time.text = ""

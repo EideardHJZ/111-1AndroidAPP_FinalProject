@@ -21,12 +21,13 @@ class Result : AppCompatActivity() {
         val article: String? = intent.getStringExtra("articleTXT")
         val tvAnswerContent = findViewById<TextView>(R.id.tvAnswerContent)
         val answer = SpannableStringBuilder(intent.getStringExtra("content"))
+        val times = SpannableStringBuilder(intent.getStringExtra("time")).toString().toInt()
         val tvRate = findViewById<TextView>(R.id.tvRate2)
         val tvWPM = findViewById<TextView>(R.id.tvWPM2)
         val tvTime = findViewById<TextView>(R.id.tvTime2)
         val tvJudge = findViewById<TextView>(R.id.tvJudge)
         //val time = (intent.getStringExtra("time")!!.toInt())
-
+        tvTime.text = times.toString()
         var correct = 0
         var incorrect = 0
         var rate = 0
@@ -66,8 +67,8 @@ class Result : AppCompatActivity() {
             tvJudge.text = "Poor"
         }
         tvRate.text = rate.toString()
-        //tvWPM.text = (correct/(60/time) - (incorrect)/(60/time)).toString()
-        //tvTime.text = time.toString()
+        tvWPM.text = (correct/(60/times) - (incorrect)/(60/times)).toString()
+        tvTime.text = times.toString()
 
 
 
