@@ -92,7 +92,7 @@ class Running : AppCompatActivity() {
                 override fun onFinish() {
                     tx_time.text = ""
                     status_ch = true
-                    resetPr(substr,"0")
+                    resetPr(substr,"110")
 
                 }
             }
@@ -105,10 +105,6 @@ class Running : AppCompatActivity() {
                 resetPr(substr,(110-tx_time.text.toString().toInt()).toString())
             })
         }
-
-
-
-
     }
 
 

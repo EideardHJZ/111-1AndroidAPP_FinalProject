@@ -28,10 +28,9 @@ class Result : AppCompatActivity() {
         val tvJudge = findViewById<TextView>(R.id.tvJudge)
         var correct = 0
         var incorrect = 0
-        var rate = 0
-        var wpm = 0
-        tvOriginContent.text = article
-        tvTime.text = times.toString()
+        var wpm = 0.0
+
+        //Answer Check
         for (i in 0 until (answer.length))
         {
             if(answer[i] == article?.get(i))
@@ -46,44 +45,67 @@ class Result : AppCompatActivity() {
             }
         }
 
-        tvAnswerContent.text = answer
-        if(answer.length != 0)
+        //Identify Article Language
+        if(((article!![0].toInt() < 91 ) && (article!![0].toInt() > 64 )) || ((article!![0].toInt() > 96 ) && (article!![0].toInt() < 123)))
         {
-            rate = (correct * 100) / answer.length
+            //Word Per Minute in English
+            if((correct != 0) && (correct > incorrect))
+            {
+                wpm = ((correct/5) * (60/times.toDouble())) - ((incorrect/5) * (60/times.toDouble()))
+            }
+            else
+            {
+                wpm = 0.0
+            }
         }
         else
         {
-            rate = 0
+            //Word Per Minute in Chinese
+            if((correct != 0) && (correct > incorrect))
+            {
+                wpm = (correct * (60/times.toDouble())) - (incorrect * (60/times.toDouble()))
+            }
+            else
+            {
+                wpm = 0.0
+            }
         }
 
+        //Accuracy Rate
+        var rate: Int = if(answer.isNotEmpty()) {
+            (correct * 100) / answer.length
+        } else {
+            0
+        }
+
+        //Overall Judge
         if(rate > 85 && (wpm > 15) && (wpm < 29))
         {
-            tvJudge.text = "Excellent"
+            tvJudge.text = "評級：Excellent"
         }
         else if (rate > 85 && (wpm > 30) && (wpm < 79))
         {
-            tvJudge.text = "Good"
+            tvJudge.text = "評級：Good"
         }
         else if (rate > 85 && (wpm > 80))
         {
-            tvJudge.text = "Fair"
+            tvJudge.text = "評級：Fair"
         }
         else
         {
-            tvJudge.text = "Poor"
+            tvJudge.text = "評級：Poor"
         }
 
+        //Show Result
+        tvOriginContent.text = article
+        tvAnswerContent.text = answer
         tvRate.text = rate.toString()
-        tvWPM.text = (correct * (60/times)).toString()
         tvTime.text = times.toString()
-
-
+        tvWPM.text = wpm.toInt().toString()
 
         btnBack.setOnClickListener {
             val back = Intent(this, MainActivity::class.java)
             startActivity(back)
         }
-
-        //tvResult.text = "60秒內輸入的文字:$name\n處理用名稱為content\n\n原始文章內容為:$artical\n處理用名稱為articalTXT"
     }
 }
