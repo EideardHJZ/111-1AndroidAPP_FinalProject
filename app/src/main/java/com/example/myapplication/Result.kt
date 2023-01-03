@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
+import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
 import android.widget.Button
 import android.widget.TextView
@@ -41,7 +42,14 @@ class Result : AppCompatActivity() {
             else
             {
                 incorrect += 1
-                answer.setSpan(ForegroundColorSpan(Color.RED), i, i+1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                if(answer[i] == ' ')
+                {
+                    answer.setSpan(BackgroundColorSpan(Color.RED), i, i+1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                }
+                else
+                {
+                    answer.setSpan(ForegroundColorSpan(Color.RED), i, i+1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                }
             }
         }
 
@@ -81,7 +89,7 @@ class Result : AppCompatActivity() {
         //Overall Judge
         if(rate > 85 && (wpm > 15) && (wpm < 29))
         {
-            tvJudge.text = "評級：Excellent"
+            tvJudge.text = "評級：Fair"
         }
         else if (rate > 85 && (wpm > 30) && (wpm < 79))
         {
@@ -89,7 +97,7 @@ class Result : AppCompatActivity() {
         }
         else if (rate > 85 && (wpm > 80))
         {
-            tvJudge.text = "評級：Fair"
+            tvJudge.text = "評級：Excellent"
         }
         else
         {
